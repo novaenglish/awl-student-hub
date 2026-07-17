@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AWL Coach — Student Resource Hub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              navy: {
+                50: '#eef3f8',
+                100: '#d4e0ec',
+                200: '#a9c1d9',
+                300: '#7ea2c6',
+                400: '#4b7aa6',
+                500: '#1a3a5c',
+                600: '#152f4a',
+                700: '#102438',
+                800: '#0b1926',
+                900: '#060e14',
+              },
+              gold: {
+                50: '#fff9f0',
+                100: '#fef0d9',
+                200: '#fce0b3',
+                300: '#f9cd85',
+                400: '#f5a623',
+                500: '#e0950e',
+                600: '#b8790b',
+                700: '#8f5e09',
+                800: '#664306',
+                900: '#3d2804',
+              },
+            },
+            fontFamily: {
+              display: ['Playfair Display', 'serif'],
+              sans: ['Inter', 'sans-serif'],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      :root {
+        --navy: #1a3a5c;
+        --navy-dark: #0f2640;
+        --navy-light: #24527a;
+        --gold: #f5a623;
+        --gold-light: #fce0b3;
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        font-family: 'Inter', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f7f8fa;
+        color: #1a3a5c;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      .hero-gradient {
+        background: linear-gradient(135deg, #0f2640 0%, #1a3a5c 40%, #24527a 100%);
+      }
+
+      .card-hover {
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+      }
+      .card-hover:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 20px 40px rgba(26, 58, 92, 0.12);
+      }
+
+      .stat-card { transition: transform 0.2s ease; }
+      .stat-card:hover { transform: translateY(-3px); }
+
+      .tip-card {
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+      }
+      .tip-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 28px rgba(26, 58, 92, 0.08);
+      }
+
+      .lesson-card {
+        transition: all 0.3s ease;
+        border-left-width: 4px;
+        border-left-style: solid;
+      }
+      .lesson-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 24px rgba(26, 58, 92, 0.1);
+      }
+
+      .lesson-btn {
+        transition: all 0.2s ease;
+        cursor: pointer;
+        min-height: 44px;
+      }
+      .lesson-btn:hover { transform: translateY(-1px); filter: brightness(0.95); }
+
+      .score-btn-style {
+        transition: all 0.2s ease;
+        cursor: pointer;
+        min-width: 44px;
+        min-height: 44px;
+      }
+      .score-btn-style:hover { transform: scale(1.06); }
+
+      .reset-btn {
+        transition: all 0.2s ease;
+        cursor: pointer;
+      }
+      .reset-btn:hover { transform: translateY(-1px); filter: brightness(0.92); }
+
+      .progress-ring-circle {
+        transition: stroke-dashoffset 0.5s ease;
+      }
+
+      .lesson-pill {
+        transition: background-color 0.2s ease, transform 0.15s ease;
+      }
+      .lesson-pill:hover {
+        background-color: #d4e0ec;
+        transform: translateY(-2px);
+      }
+    </style>
+  </head>
+  <body data-id="0" class="min-h-screen flex flex-col">
+    <app-icon data-id="1" hidden data-icon="graduation-cap" data-palette="Yellow"></app-icon>
+
+    <!-- =============== HEADER =============== -->
+    <header data-id="2" id="hero-header-x8k2" class="hero-gradient relative overflow-hidden">
+      <div data-id="3" id="hero-bg-glow-r3m1" class="absolute inset-0 opacity-[0.04]" style="background-image: radial-gradient(circle at 20% 50%, rgba(245,166,35,0.3) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(245,166,35,0.2) 0%, transparent 40%);"></div>
+      <div data-id="4" id="hero-content-j4n7" class="relative z-10 flex flex-col items-center justify-center text-center px-5 py-14 md:py-20">
+        <div data-id="5" id="hero-icon-wrap-q9w3" class="w-20 h-20 md:w-24 md:h-24 rounded-full flex items-center justify-center mb-5" style="background: linear-gradient(135deg, #f5a623, #e0950e); box-shadow: 0 8px 32px rgba(245,166,35,0.3);">
+          <span data-id="6" class="text-4xl md:text-5xl" role="img" aria-label="Graduation cap">🎓</span>
+        </div>
+        <h1 data-id="7" id="hero-title-b2v8" class="font-display text-3xl md:text-5xl font-extrabold text-white tracking-tight">AWL Coach</h1>
+        <p data-id="8" id="hero-subtitle-f5c1" class="text-gold-400 font-semibold text-base md:text-lg mt-2 tracking-wide uppercase">Academic Vocabulary Program</p>
+        <p data-id="9" id="hero-tagline-h7d4" class="text-white/70 text-sm md:text-base italic mt-3 max-w-md">Everything you need to succeed — all in one place.</p>
+      </div>
+      <div data-id="10" class="absolute bottom-0 left-0 right-0 h-6" style="background: linear-gradient(to top, #f7f8fa, transparent);"></div>
+    </header>
+
+    <!-- =============== MAIN =============== -->
+    <main data-id="11" id="main-content-a1z9" class="flex-1">
+
+      <!-- =============== WELCOME CARD =============== -->
+      <section data-id="12" id="welcome-section-p3k8" class="px-4 md:px-6 -mt-4 relative z-20">
+        <div data-id="13" id="welcome-card-w5t2" class="max-w-2xl mx-auto bg-white rounded-2xl shadow-lg p-6 md:p-8 border border-navy-50">
+          <h2 data-id="14" id="welcome-heading-m7r1" class="text-xl md:text-2xl font-bold text-navy-500 mb-3">Welcome, Students! 👋</h2>
+          <p data-id="15" id="welcome-text-e4u6" class="text-navy-400 text-sm md:text-base leading-relaxed">
+            This page is your home base for the AWL Coach program. Use the tools below to track your lessons, assess your progress, and access the app.
+          </p>
+        </div>
+      </section>
+
+      <!-- =============== AWL COACH APP LINK CARD =============== -->
+      <section data-id="16" id="app-link-section-c8f3" class="px-4 md:px-6 py-12 md:py-16">
+        <div data-id="17" id="app-link-wrapper-g2j9" class="max-w-md mx-auto">
+          <div data-id="18" id="app-card-n6q4" class="bg-white rounded-2xl shadow-md card-hover overflow-hidden flex flex-col border-l-4" style="border-left-color: #7c3aed;">
+            <div data-id="19" id="app-card-body-s1v7" class="flex flex-col items-center pt-8 pb-4 px-6">
+              <span data-id="20" class="text-5xl mb-4" role="img" aria-label="Mobile phone">📱</span>
+              <h3 data-id="21" id="app-card-title-d5h2" class="text-lg font-bold text-navy-500 text-center">AWL Coach App</h3>
+              <p data-id="22" id="app-card-desc-k9m3" class="text-navy-400 text-sm text-center mt-2 leading-relaxed">Record your pronunciation, paste any text to find AWL words, and track your vocabulary growth.</p>
+            </div>
+            <div data-id="23" id="app-card-cta-r4w8" class="px-6 pb-6 mt-auto">
+              <a data-id="24" id="app-card-link-t7b1" href="https://litlexawlcoach.com" target="_blank" rel="noopener" class="block w-full text-center py-3 px-4 rounded-xl text-white font-semibold text-sm" style="background-color: #7c3aed; transition: filter 0.2s ease;">
+                Open App →
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =============== QUICK FACTS STRIP =============== -->
+      <section data-id="25" id="facts-section-u2e5" class="hero-gradient relative">
+        <div data-id="26" class="absolute inset-0 opacity-[0.03]" style="background-image: radial-gradient(circle at 50% 50%, rgba(245,166,35,0.4) 0%, transparent 60%);"></div>
+        <div data-id="27" id="facts-content-y8i3" class="relative z-10 max-w-4xl mx-auto px-4 md:px-6 py-10 md:py-14">
+          <div data-id="28" id="facts-grid-l6o9" class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-4 text-center">
+            <div data-id="29" class="stat-card flex flex-col items-center">
+              <span data-id="30" class="text-3xl mb-2" role="img" aria-label="Books">📚</span>
+              <p data-id="31" class="text-gold-400 text-3xl md:text-4xl font-extrabold">570</p>
+              <p data-id="32" class="text-white/80 text-sm font-medium mt-1">Academic Word Families</p>
+            </div>
+            <div data-id="33" class="stat-card flex flex-col items-center">
+              <span data-id="34" class="text-3xl mb-2" role="img" aria-label="Open book">📖</span>
+              <p data-id="35" class="text-gold-400 text-3xl md:text-4xl font-extrabold">6</p>
+              <p data-id="36" class="text-white/80 text-sm font-medium mt-1">Evidence-Based Lessons</p>
+            </div>
+            <div data-id="37" class="stat-card flex flex-col items-center">
+              <span data-id="38" class="text-3xl mb-2" role="img" aria-label="Brain">🧠</span>
+              <p data-id="39" class="text-gold-400 text-3xl md:text-4xl font-extrabold">10%</p>
+              <p data-id="40" class="text-white/80 text-sm font-medium mt-1">of Every Academic Text</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =============== LESSON TRACKER =============== -->
+      <section data-id="41" id="tracker-section-z3x7" class="px-4 md:px-6 py-12 md:py-16 bg-white">
+        <div data-id="42" id="tracker-wrapper-v1c4" class="max-w-4xl mx-auto">
+          <div data-id="43" id="tracker-header-b8n2" class="text-center mb-10">
+            <h2 data-id="44" id="tracker-title-f6p5" class="font-display text-2xl md:text-3xl font-bold text-navy-500">Track Your Progress</h2>
+            <p data-id="45" id="tracker-subtitle-j9s1" class="text-gold-500 font-semibold text-sm mt-2 uppercase tracking-wide">Click each lesson to mark it complete</p>
+          </div>
+
+          <div data-id="46" id="tracker-layout-q7w3" class="flex flex-col md:flex-row gap-8 items-start">
+            <!-- Progress Ring -->
+            <div data-id="47" id="progress-ring-wrap-h4d6" class="flex flex-col items-center mx-auto md:mx-0 flex-shrink-0">
+              <svg data-id="48" id="progress-ring-svg-m2k8" width="140" height="140" viewBox="0 0 120 120">
+                <circle data-id="49" cx="60" cy="60" r="54" stroke="#e5e7eb" stroke-width="10" fill="none"/>
+                <circle data-id="50" id="progress-ring" class="progress-ring-circle" cx="60" cy="60" r="54" stroke="#f5a623" stroke-width="10" fill="none" stroke-linecap="round" stroke-dasharray="339.3" stroke-dashoffset="339.3" transform="rotate(-90 60 60)"/>
+                <text data-id="51" id="progress-pct" x="60" y="60" text-anchor="middle" dominant-baseline="central" font-size="28" font-weight="800" fill="#1a3a5c">0%</text>
+              </svg>
+              <p data-id="52" id="progress-label-r5t9" class="text-navy-400 text-sm font-medium mt-2">Lessons Complete</p>
+            </div>
+
+            <!-- Lesson Cards Grid -->
+            <div data-id="53" id="lesson-grid-e3g7" class="flex-1 grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
+
+              <!-- Lesson 1 -->
+              <div data-id="54" id="lesson-card-1" class="lesson-card bg-white rounded-xl p-5 shadow-sm border border-navy-50" style="border-left-color: #0d9488;">
+                <div data-id="55" class="flex items-start gap-3">
+                  <span data-id="56" class="flex-shrink-0 w-8 h-8 rounded-lg text-white font-bold text-sm flex items-center justify-center shadow-sm" style="background-color: #0d9488;">1</span>
+                  <div data-id="57" class="flex-1 min-w-0">
+                    <h4 data-id="58" class="text-navy-500 font-semibold text-sm">Finding Academic Words in the Wild</h4>
+                    <p data-id="59" class="text-navy-300 text-xs mt-1 leading-relaxed">Identify AWL words in real academic texts and understand how word families work.</p>
+                  </div>
+                </div>
+                <button data-id="60" id="lesson-btn-1" class="lesson-btn mt-3 w-full py-2 px-3 rounded-lg text-xs font-semibold border-2" style="background-color: white; color: #1a3a5c; border-color: #1a3a5c;" onclick="toggleLesson(1)">Mark Complete</button>
+              </div>
+
+              <!-- Lesson 2 -->
+              <div data-id="61" id="lesson-card-2" class="lesson-card bg-white rounded-xl p-5 shadow-sm border border-navy-50" style="border-left-color: #7c3aed;">
+                <div data-id="62" class="flex items-start gap-3">
+                  <span data-id="63" class="flex-shrink-0 w-8 h-8 rounded-lg text-white font-bold text-sm flex items-center justify-center shadow-sm" style="background-color: #7c3aed;">2</span>
+                  <div data-id="64" class="flex-1 min-w-0">
+                    <h4 data-id="65" class="text-navy-500 font-semibold text-sm">Word Families &amp; Morphology</h4>
+                    <p data-id="66" class="text-navy-300 text-xs mt-1 leading-relaxed">Learn how one root word becomes 4–6 forms using suffixes like -tion, -ive, -ment.</p>
+                  </div>
+                </div>
+                <button data-id="67" id="lesson-btn-2" class="lesson-btn mt-3 w-full py-2 px-3 rounded-lg text-xs font-semibold border-2" style="background-color: white; color: #1a3a5c; border-color: #1a3a5c;" onclick="toggleLesson(2)">Mark Complete</button>
+              </div>
+
+              <!-- Lesson 3 -->
+              <div data-id="68" id="lesson-card-3" class="lesson-card bg-white rounded-xl p-5 shadow-sm border border-navy-50" style="border-left-color: #d97706;">
+                <div data-id="69" class="flex items-start gap-3">
+                  <span data-id="70" class="flex-shrink-0 w-8 h-8 rounded-lg text-white font-bold text-sm flex items-center justify-center shadow-sm" style="background-color: #d97706;">3</span>
+                  <div data-id="71" class="flex-1 min-w-0">
+                    <h4 data-id="72" class="text-navy-500 font-semibold text-sm">Academic Listening &amp; Speaking</h4>
+                    <p data-id="73" class="text-navy-300 text-xs mt-1 leading-relaxed">Master stress patterns and record yourself using the AWL Coach app.</p>
+                  </div>
+                </div>
+                <button data-id="74" id="lesson-btn-3" class="lesson-btn mt-3 w-full py-2 px-3 rounded-lg text-xs font-semibold border-2" style="background-color: white; color: #1a3a5c; border-color: #1a3a5c;" onclick="toggleLesson(3)">Mark Complete</button>
+              </div>
+
+              <!-- Lesson 4 -->
+              <div data-id="75" id="lesson-card-4" class="lesson-card bg-white rounded-xl p-5 shadow-sm border border-navy-50" style="border-left-color: #16a34a;">
+                <div data-id="76" class="flex items-start gap-3">
+                  <span data-id="77" class="flex-shrink-0 w-8 h-8 rounded-lg text-white font-bold text-sm flex items-center justify-center shadow-sm" style="background-color: #16a34a;">4</span>
+                  <div data-id="78" class="flex-1 min-w-0">
+                    <h4 data-id="79" class="text-navy-500 font-semibold text-sm">Reading &amp; Paraphrasing</h4>
+                    <p data-id="80" class="text-navy-300 text-xs mt-1 leading-relaxed">Use a 3-step method to paraphrase academic texts using AWL synonyms.</p>
+                  </div>
+                </div>
+                <button data-id="81" id="lesson-btn-4" class="lesson-btn mt-3 w-full py-2 px-3 rounded-lg text-xs font-semibold border-2" style="background-color: white; color: #1a3a5c; border-color: #1a3a5c;" onclick="toggleLesson(4)">Mark Complete</button>
+              </div>
+
+              <!-- Lesson 5 -->
+              <div data-id="82" id="lesson-card-5" class="lesson-card bg-white rounded-xl p-5 shadow-sm border border-navy-50" style="border-left-color: #dc2626;">
+                <div data-id="83" class="flex items-start gap-3">
+                  <span data-id="84" class="flex-shrink-0 w-8 h-8 rounded-lg text-white font-bold text-sm flex items-center justify-center shadow-sm" style="background-color: #dc2626;">5</span>
+                  <div data-id="85" class="flex-1 min-w-0">
+                    <h4 data-id="86" class="text-navy-500 font-semibold text-sm">Hedging Language in Writing</h4>
+                    <p data-id="87" class="text-navy-300 text-xs mt-1 leading-relaxed">Write with academic caution using words like suggest, indicate, and arguably.</p>
+                  </div>
+                </div>
+                <button data-id="88" id="lesson-btn-5" class="lesson-btn mt-3 w-full py-2 px-3 rounded-lg text-xs font-semibold border-2" style="background-color: white; color: #1a3a5c; border-color: #1a3a5c;" onclick="toggleLesson(5)">Mark Complete</button>
+              </div>
+
+              <!-- Lesson 6 -->
+              <div data-id="89" id="lesson-card-6" class="lesson-card bg-white rounded-xl p-5 shadow-sm border border-navy-50" style="border-left-color: #2563eb;">
+                <div data-id="90" class="flex items-start gap-3">
+                  <span data-id="91" class="flex-shrink-0 w-8 h-8 rounded-lg text-white font-bold text-sm flex items-center justify-center shadow-sm" style="background-color: #2563eb;">6</span>
+                  <div data-id="92" class="flex-1 min-w-0">
+                    <h4 data-id="93" class="text-navy-500 font-semibold text-sm">Spaced Review &amp; Vocabulary Quiz</h4>
+                    <p data-id="94" class="text-navy-300 text-xs mt-1 leading-relaxed">Play the vocabulary auction game and review all sublists for exam readiness.</p>
+                  </div>
+                </div>
+                <button data-id="95" id="lesson-btn-6" class="lesson-btn mt-3 w-full py-2 px-3 rounded-lg text-xs font-semibold border-2" style="background-color: white; color: #1a3a5c; border-color: #1a3a5c;" onclick="toggleLesson(6)">Mark Complete</button>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Celebration Banner -->
+          <div data-id="96" id="celebration" class="mt-8 rounded-2xl p-6 text-center" style="display: none; background-color: #16a34a;">
+            <p data-id="97" class="text-white font-bold text-lg">🎉 All 6 lessons complete! You're on your way to academic fluency.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- =============== SELF-ASSESSMENT RUBRIC =============== -->
+      <section data-id="98" id="rubric-section-a9c5" class="px-4 md:px-6 py-12 md:py-16" style="background-color: #eef3f8;">
+        <div data-id="99" id="rubric-wrapper-d7f1" class="max-w-3xl mx-auto">
+          <h2 data-id="100" id="rubric-title-g4h8" class="font-display text-2xl md:text-3xl font-bold text-navy-500 text-center mb-10">Self-Assessment Rubric</h2>
+
+          <div data-id="101" id="rubric-cards-i2j6" class="space-y-5">
+
+            <!-- Criterion 0: AWL Vocabulary Range -->
+            <div data-id="102" id="rubric-crit-0-k3l9" class="bg-white rounded-2xl p-5 md:p-6 shadow-sm border border-navy-50">
+              <h4 data-id="103" class="text-navy-500 font-bold text-sm mb-3">📚 AWL Vocabulary Range</h4>
+              <div data-id="104" class="flex flex-wrap gap-2">
+                <button data-id="105" id="rubric-btn-0-1" class="score-btn-style flex-1 min-w-[60px] py-2 px-2 rounded-lg text-xs font-semibold border-2 text-center" style="background-color: white; color: #1a3a5c; border-color: #d1d5db;" onclick="setScore(0,1)" title="Uses fewer than 5 AWL words">1<span data-id="106" class="hidden md:inline"> — &lt;5 words</span></button>
+                <button data-id="107" id="rubric-btn-0-2" class="score-btn-style flex-1 min-w-[60px] py-2 px-2 rounded-lg text-xs font-semibold border-2 text-center" style="background-color: white; color: #1a3a5c; border-color: #d1d5db;" onclick="setScore(0,2)" title="Uses 5–10 AWL words">2<span data-id="108" class="hidden md:inline"> — 5–10</span></button>
+                <button data-id="109" id="rubric-btn-0-3" class="score-btn-style flex-1 min-w-[60px] py-2 px-2 rounded-lg text-xs font-semibold border-2 text-center" style="background-color: white; color: #1a3a5c; border-color: #d1d5db;" onclick="setScore(0,3)" title="Uses 10–15 AWL words correctly">3<span data-id="110" class="hidden md:inline"> — 10–15</span></button>
+                <button data-id="111" id="rubric-btn-0-4" class="score-btn-style flex-1 min-w-[60px] py-2 px-2 rounded-lg text-xs font-semibold border-2 text-center" style="background-color: white; color: #1a3a5c; border-color: #d1d5db;" onclick="setScore(0,4)" title="Uses 15+ AWL words naturally">4<span data-id="112" class="hidden md:inline"> — 15+</span></button>
+              </div>
+            </div>
+
+            <!-- Criterion 1: Word Form Accuracy -->
+            <div data-id="113" id="rubric-crit-1-m5n2" class="bg-white rounded-2xl p-5 md:p-6 shadow-sm border border-navy-50">
+              <h4 data-id="114" class="text-navy-500 font-bold text-sm mb-3">✏️ Word Form Accuracy</h4>
+              <div data-id="115" class="flex flex-wrap gap-2">
+                <button data-id="116" id="rubric-btn-1-1" class="score-btn-style flex-1 min-w-[60px] py-2 px-2 rounded-lg text-xs font-semibold border-2 text-center" style="background-color: white; color: #1a3a5c; border-color: #d1d5db;" onclick="setScore(1,1)" title="Many word form errors">1<span data-id="117" class="hidden md:inline"> — Many errors</span></button>
+                <button data-id="118" id="rubric-btn-1-2" class="score-btn-style flex-1 min-w-[60px] py-2 px-2 rounded-lg text-xs font-semibold border-2 text-center" style="background-color: white; color: #1a3a5c; border-color: #d1d5db;" onclick="setScore(1,2)" title="Some errors in suffixes">2<span data-id="119" class="hidden md:inline"> — Some errors</span></button>
+                <button data-id="120" id="rubric-btn-1-3" class="score-btn-style flex-1 min-w-[60px] py-2 px-2 rounded-lg text-xs font-semibold border-2 text-center" style="background-color: white; color: #1a3a5c; border-color: #d1d5db;" onclick="setScore(1,3)" title="Mostly correct word forms">3<span data-id="121" class="hidden md:inline"> — Mostly correct</span></button>
+                <button data-id="122" id="rubric-btn-1-4" class="score-btn-style flex-1 min-w-[60px] py-2 px-2 rounded-lg text-xs font-semibold border-2 text-center" style="background-color: white; color: #1a3a5c; border-color: #d1d5db;" onclick="setScore(1,4)" title="All word forms used accurately">4<span data-id="123" class="hidden md:inline"> — All accurate</span></button>
+              </div>
+            </div>
+
+            <!-- Criterion 2: Pronunciation Clarity -->
+            <div data-id="124" id="rubric-crit-2-o8p4" class="bg-white rounded-2xl p-5 md:p-6 shadow-sm border border-navy-50">
+              <h4 data-id="125" class="text-navy-500 font-bold text-sm mb-3">🗣️ Pronunciation Clarity</h4>
+              <div data-id="126" class="flex flex-wrap gap-2">
+                <button data-id="127" id="rubric-btn-2-1" class="score-btn-style flex-1 min-w-[60px] py-2 px-2 rounded-lg text-xs font-semibold border-2 text-center" style="background-color: white; color: #1a3a5c; border-color: #d1d5db;" onclick="setScore(2,1)" title="Words not recognizable">1<span data-id="128" class="hidden md:inline"> — Not clear</span></button>
+                <button data-id="129" id="rubric-btn-2-2" class="score-btn-style flex-1 min-w-[60px] py-2 px-2 rounded-lg text-xs font-semibold border-2 text-center" style="background-color: white; color: #1a3a5c; border-color: #d1d5db;" onclick="setScore(2,2)" title="Some words unclear">2<span data-id="130" class="hidden md:inline"> — Some unclear</span></button>
+                <button data-id="131" id="rubric-btn-2-3" class="score-btn-style flex-1 min-w-[60px] py-2 px-2 rounded-lg text-xs font-semibold border-2 text-center" style="background-color: white; color: #1a3a5c; border-color: #d1d5db;" onclick="setScore(2,3)" title="Most words clear">3<span data-id="132" class="hidden md:inline"> — Mostly clear</span></button>
+                <button data-id="133" id="rubric-btn-2-4" class="score-btn-style flex-1 min-w-[60px] py-2 px-2 rounded-lg text-xs font-semibold border-2 text-center" style="background-color: white; color: #1a3a5c; border-color: #d1d5db;" onclick="setScore(2,4)" title="All AWL words pronounced correctly">4<span data-id="134" class="hidden md:inline"> — All clear</span></button>
+              </div>
+            </div>
+
+            <!-- Criterion 3: Context Appropriateness -->
+            <div data-id="135" id="rubric-crit-3-q1r7" class="bg-white rounded-2xl p-5 md:p-6 shadow-sm border border-navy-50">
+              <h4 data-id="136" class="text-navy-500 font-bold text-sm mb-3">🎯 Context Appropriateness</h4>
+              <div data-id="137" class="flex flex-wrap gap-2">
+                <button data-id="138" id="rubric-btn-3-1" class="score-btn-style flex-1 min-w-[60px] py-2 px-2 rounded-lg text-xs font-semibold border-2 text-center" style="background-color: white; color: #1a3a5c; border-color: #d1d5db;" onclick="setScore(3,1)" title="Words used randomly">1<span data-id="139" class="hidden md:inline"> — Random</span></button>
+                <button data-id="140" id="rubric-btn-3-2" class="score-btn-style flex-1 min-w-[60px] py-2 px-2 rounded-lg text-xs font-semibold border-2 text-center" style="background-color: white; color: #1a3a5c; border-color: #d1d5db;" onclick="setScore(3,2)" title="Sometimes appropriate">2<span data-id="141" class="hidden md:inline"> — Sometimes</span></button>
+                <button data-id="142" id="rubric-btn-3-3" class="score-btn-style flex-1 min-w-[60px] py-2 px-2 rounded-lg text-xs font-semibold border-2 text-center" style="background-color: white; color: #1a3a5c; border-color: #d1d5db;" onclick="setScore(3,3)" title="Usually appropriate">3<span data-id="143" class="hidden md:inline"> — Usually</span></button>
+                <button data-id="144" id="rubric-btn-3-4" class="score-btn-style flex-1 min-w-[60px] py-2 px-2 rounded-lg text-xs font-semibold border-2 text-center" style="background-color: white; color: #1a3a5c; border-color: #d1d5db;" onclick="setScore(3,4)" title="Always fits the academic context">4<span data-id="145" class="hidden md:inline"> — Always</span></button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Total Score -->
+          <div data-id="146" id="rubric-total-wrap-s6t3" class="mt-8 rounded-2xl p-6 text-center text-white" style="background-color: #1a3a5c;">
+            <p data-id="147" class="text-sm font-medium text-white/70 uppercase tracking-wide">Total Score</p>
+            <p data-id="148" id="rubric-total" class="text-4xl font-extrabold mt-1">0 / 16</p>
+            <p data-id="149" id="rubric-label" class="text-gold-400 font-semibold text-sm mt-2">Select scores above to begin</p>
+          </div>
+
+          <div data-id="150" class="text-center mt-5">
+            <button data-id="151" id="rubric-reset-u8v2" class="reset-btn py-2.5 px-6 rounded-xl text-sm font-semibold border-2 border-navy-200 text-navy-400 bg-white" onclick="resetRubric()">Reset Assessment</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- =============== STUDY TIPS =============== -->
+      <section data-id="152" id="tips-section-w9x1" class="px-4 md:px-6 py-12 md:py-16 bg-white">
+        <div data-id="153" id="tips-wrapper-y4z6" class="max-w-4xl mx-auto">
+          <h2 data-id="154" id="tips-title-a3b8" class="font-display text-2xl md:text-3xl font-bold text-navy-500 text-center mb-10">Study Tips for Success 💡</h2>
+          <div data-id="155" id="tips-grid-c7d2" class="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div data-id="156" class="tip-card bg-navy-50 rounded-2xl p-6 shadow-sm border border-navy-100">
+              <div data-id="157" class="flex items-start gap-4">
+                <span data-id="158" class="text-3xl flex-shrink-0 mt-0.5" role="img" aria-label="Timer">⏱️</span>
+                <p data-id="159" class="text-navy-500 text-sm leading-relaxed"><strong data-id="160" class="font-semibold">Review words on days 1, 3, 7, and 14</strong> — spaced repetition doubles retention.</p>
+              </div>
+            </div>
+            <div data-id="161" class="tip-card bg-navy-50 rounded-2xl p-6 shadow-sm border border-navy-100">
+              <div data-id="162" class="flex items-start gap-4">
+                <span data-id="163" class="text-3xl flex-shrink-0 mt-0.5" role="img" aria-label="Speaking">🗣️</span>
+                <p data-id="164" class="text-navy-500 text-sm leading-relaxed"><strong data-id="165" class="font-semibold">Practice pronouncing every new word.</strong> If you can't say it, you won't use it.</p>
+              </div>
+            </div>
+            <div data-id="166" class="tip-card bg-navy-50 rounded-2xl p-6 shadow-sm border border-navy-100">
+              <div data-id="167" class="flex items-start gap-4">
+                <span data-id="168" class="text-3xl flex-shrink-0 mt-0.5" role="img" aria-label="Clipboard">📋</span>
+                <p data-id="169" class="text-navy-500 text-sm leading-relaxed"><strong data-id="170" class="font-semibold">Paste your writing into the AWL Coach app</strong> to check your academic word density.</p>
+              </div>
+            </div>
+            <div data-id="171" class="tip-card bg-navy-50 rounded-2xl p-6 shadow-sm border border-navy-100">
+              <div data-id="172" class="flex items-start gap-4">
+                <span data-id="173" class="text-3xl flex-shrink-0 mt-0.5" role="img" aria-label="Handshake">🤝</span>
+                <p data-id="174" class="text-navy-500 text-sm leading-relaxed"><strong data-id="175" class="font-semibold">Discuss new words with classmates</strong> — peer conversation deepens word knowledge.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- =============== FOOTER =============== -->
+    <footer data-id="176" id="footer-section-e5f9" class="hero-gradient px-4 md:px-6 py-10 text-center">
+      <p data-id="177" id="footer-brand-g1h3" class="text-white/90 font-semibold text-sm mb-2">AWL Coach · Evidence-Based Academic Vocabulary</p>
+      <a data-id="178" id="footer-link-i6j8" href="https://litlexawlcoach.com" target="_blank" rel="noopener" class="text-gold-400 font-medium text-sm hover:underline">litlexawlcoach.com</a>
+      <p data-id="179" id="footer-tagline-k2l5" class="text-white/50 text-xs mt-4">Built for learners. Backed by research.</p>
+      
+    </footer>
+
+    <script>
+      var lessonsDone = (function() {
+        try { return JSON.parse(localStorage.getItem('awl_lessons') || '{}'); } catch(e) { return {}; }
+      })();
+
+      var rubricScores = (function() {
+        try { return JSON.parse(localStorage.getItem('awl_rubric') || '[0,0,0,0]'); } catch(e) { return [0,0,0,0]; }
+      })();
+
+      var borderColors = {1:'#0d9488',2:'#7c3aed',3:'#d97706',4:'#16a34a',5:'#dc2626',6:'#2563eb'};
+
+      function toggleLesson(n) {
+        lessonsDone[n] = !lessonsDone[n];
+        try { localStorage.setItem('awl_lessons', JSON.stringify(lessonsDone)); } catch(e) {}
+        updateLessons();
+      }
+
+      function updateLessons() {
+        var done = 0;
+        for (var i = 1; i <= 6; i++) {
+          var card = document.getElementById('lesson-card-' + i);
+          var btn = document.getElementById('lesson-btn-' + i);
+          if (!card || !btn) continue;
+          if (lessonsDone[i]) {
+            done++;
+            card.style.backgroundColor = '#f0fdf4';
+            card.style.borderLeftColor = '#16a34a';
+            btn.textContent = '✓ Completed';
+            btn.style.backgroundColor = '#16a34a';
+            btn.style.color = 'white';
+            btn.style.borderColor = '#16a34a';
+          } else {
+            card.style.backgroundColor = 'white';
+            card.style.borderLeftColor = borderColors[i];
+            btn.textContent = 'Mark Complete';
+            btn.style.backgroundColor = 'white';
+            btn.style.color = '#1a3a5c';
+            btn.style.borderColor = '#1a3a5c';
+          }
+        }
+        var pct = Math.round(done / 6 * 100);
+        var ring = document.getElementById('progress-ring');
+        var pctEl = document.getElementById('progress-pct');
+        if (ring) ring.setAttribute('stroke-dashoffset', 339.3 - (339.3 * pct / 100));
+        if (pctEl) pctEl.textContent = pct + '%';
+        var cel = document.getElementById('celebration');
+        if (cel) cel.style.display = done === 6 ? 'block' : 'none';
+      }
+
+      function setScore(c, s) {
+        rubricScores[c] = (rubricScores[c] === s) ? 0 : s;
+        try { localStorage.setItem('awl_rubric', JSON.stringify(rubricScores)); } catch(e) {}
+        updateRubric();
+      }
+
+      function resetRubric() {
+        rubricScores = [0,0,0,0];
+        try { localStorage.setItem('awl_rubric', JSON.stringify(rubricScores)); } catch(e) {}
+        updateRubric();
+      }
+
+      function updateRubric() {
+        for (var c = 0; c < 4; c++) {
+          for (var s = 1; s <= 4; s++) {
+            var btn = document.getElementById('rubric-btn-' + c + '-' + s);
+            if (!btn) continue;
+            if (rubricScores[c] === s) {
+              btn.style.backgroundColor = '#1a3a5c';
+              btn.style.color = 'white';
+              btn.style.borderColor = '#1a3a5c';
+            } else {
+              btn.style.backgroundColor = 'white';
+              btn.style.color = '#1a3a5c';
+              btn.style.borderColor = '#d1d5db';
+            }
+          }
+        }
+        var total = rubricScores.reduce(function(a,b){ return a+b; }, 0);
+        var el = document.getElementById('rubric-total');
+        var lbl = document.getElementById('rubric-label');
+        if (el) el.textContent = total + ' / 16';
+        if (lbl) {
+          if (total === 0) lbl.textContent = 'Select scores above to begin';
+          else if (total <= 4) lbl.textContent = 'Needs Practice';
+          else if (total <= 8) lbl.textContent = 'Developing';
+          else if (total <= 12) lbl.textContent = 'Proficient';
+          else lbl.textContent = 'Excellent \u2605';
+        }
+      }
+
+      // Init on load
+      updateLessons();
+      updateRubric();
+    </script>
+  </body>
+</html>
